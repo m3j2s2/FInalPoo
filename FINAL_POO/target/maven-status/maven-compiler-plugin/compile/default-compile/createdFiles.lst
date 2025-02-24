@@ -1,7 +1,11 @@
+igu\PanelAlumno$1.class
 logica\Carrera.class
 igu\VentanaPrincipal.class
+igu\PanelCarrera.class
+igu\PanelCarrera$1.class
 igu\VentanaPrincipal$1.class
 logica\Materia.class
 com\mycompany\final_poo\FINAL_POO.class
 logica\Alumno.class
 logica\Administracion.class
+igu\PanelAlumno.class

@@ -5,7 +5,12 @@ import java.util.ArrayList;
 
 public class Administracion {
     private ArrayList<Carrera> Carreras;
-
+    private ArrayList<Alumno> Alumnos;
+    
+    public Administracion(){
+        Carreras=new ArrayList<>();
+        Alumnos=new ArrayList<>();
+    }
     
     public void altaDeCarrera(String nombre, String codigo){ //crea una carrera
         Carrera carrera = getCarrera(nombre);
@@ -27,32 +32,25 @@ public class Administracion {
         return null;
     }
     
-    public void altaDeAlumno(String nombre, long dni, String propuesta){
-        Carrera carrera = getCarrera(propuesta);
-        if (carrera != null){
-            carrera.setAlumno(new Alumno(nombre,dni,propuesta));            
-        }
-    }
-    
-    public Alumno getAlumno(long DNI, String propuesta){
-        Carrera carrera = getCarrera(propuesta);  //obtengo la carrera
-        if (carrera != null){
-            ArrayList<Alumno> Alumnos = carrera.getAlumnos();  //si existe obtengo la lista de alumnos
-            for (Alumno alumno : Alumnos){   //si el alumno existe, lo devuelvo
-                if (alumno.getDni() == DNI){
-                    return alumno;
-                }
+    public Alumno getAlumno(long DNI){
+        for (Alumno alumno: Alumnos){
+            if (alumno.getDni()==DNI){
+                return alumno;
             }
         }
-        return null; //si no existia la carrera o no existia el alumno devuelvo false
+        return null;
     }
     
-    public ArrayList<Alumno> getAlumnos(String propuesta){
-        Carrera carrera = getCarrera(propuesta);
-        if (carrera != null){
-            return carrera.getAlumnos();
-        }
-        else return null;
+    public void altaDeAlumno(String nombre, String carrera, long Dni){
+        Alumno alumno = getAlumno(Dni);
+            if (alumno==null){
+                Alumnos.add(new Alumno( nombre,  Dni,  carrera));
+            
+            }
     }
     
+    
+    
+    
+ 
 }
